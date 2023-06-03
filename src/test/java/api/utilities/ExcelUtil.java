@@ -28,7 +28,7 @@ public class ExcelUtil {
 	}
 	
 	public int getRowCount(String sheetName) throws IOException {
-		fi=new FileInputStream(sheetName);
+		fi=new FileInputStream(path);
 		workbook=new XSSFWorkbook(fi);
 		sheet=workbook.getSheet(sheetName);
 		int rowCount=sheet.getLastRowNum();
@@ -38,7 +38,7 @@ public class ExcelUtil {
 		
 	}
 	public int getCellCount(String sheetName,int rowNum) throws IOException {
-		fi=new FileInputStream(sheetName);
+		fi=new FileInputStream(path);
 		workbook=new XSSFWorkbook(fi);
 		sheet=workbook.getSheet(sheetName);
 		row=sheet.getRow(rowNum);
@@ -48,13 +48,12 @@ public class ExcelUtil {
 		return cellCount;
 	}
 	
-	public String getCellData(String sheetName,int rowNum,int colNum) throws IOException {
+	public String getCellData(String sheetName,int rowNum,int colNum) throws IOException{
 		try {
-		fi=new FileInputStream(sheetName);
+		fi=new FileInputStream(path);
 		
 			workbook=new XSSFWorkbook(fi);
 		} catch (IOException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		sheet=workbook.getSheet(sheetName);
